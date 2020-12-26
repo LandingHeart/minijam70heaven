@@ -403,6 +403,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6125371133079370330, guid: 1dfb5f7398317c24db1c4bd69baf96ec, type: 3}
+      propertyPath: maxForce
+      value: 2000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125371133079370330, guid: 1dfb5f7398317c24db1c4bd69baf96ec, type: 3}
+      propertyPath: minForce
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125371133079370330, guid: 1dfb5f7398317c24db1c4bd69baf96ec, type: 3}
+      propertyPath: motorForce
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125371133079370333, guid: 1dfb5f7398317c24db1c4bd69baf96ec, type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 6126100298804098388, guid: 1dfb5f7398317c24db1c4bd69baf96ec, type: 3}
       propertyPath: m_Name
       value: Car
