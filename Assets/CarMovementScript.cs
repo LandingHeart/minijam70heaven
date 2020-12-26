@@ -12,8 +12,11 @@ public class CarMovementScript : MonoBehaviour
     private bool isBreaking;
     private float currentSteerAngle;
     private float currentbreakForce;
+    private bool isAccelerating = false;
 
     [SerializeField] private float motorForce;
+    [SerializeField] private float maxForce;
+    [SerializeField] private float minForce;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
 
@@ -47,13 +50,16 @@ public class CarMovementScript : MonoBehaviour
         {
             isBreaking = false;
         }
-        
+        isAccelerating = Input.GetKey(KeyCode.LeftShift);
         // Input.GetKey(KeyCode.Space);
         // Debug.Log(verticalInput);
     }
 
     private void HandleMotor()
     {
+        
+
+
         frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
         frontRightWheelCollider.motorTorque = verticalInput * motorForce;
         currentbreakForce = isBreaking ? breakForce : 0f;
