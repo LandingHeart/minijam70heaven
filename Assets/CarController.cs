@@ -15,9 +15,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float turnStrength;
     private float gravityForce = 10f;
     public bool grounded;
-    public LayerMask whatIsGround;
-    public float groundRayLength = .5f;
-    public Transform groundRayPoint;
+
     private float dragOnGround = 3f;
 
     private float speedInput, turnInput;
@@ -38,26 +36,15 @@ public class CarController : MonoBehaviour
         }
 
         turnInput = Input.GetAxis(HORIZONTAL);
-        if(grounded){
+        // if(grounded){
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis(VERTICAL), 0f));
-        }
+        // }
 
         visual.position = rb.transform.position;
     }
 
     private void FixedUpdate(){
-        grounded = false;
-        RaycastHit hit;
-
-        if(Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, whatIsGround)){
-            grounded = true;
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-            // Debug.Log("ground");
-        }else{
-            // Debug.Log("air");
-        }
         
-
         if(grounded){
             rb.drag = dragOnGround;
             if(Mathf.Abs(speedInput) > 0){
