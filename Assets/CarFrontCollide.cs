@@ -49,6 +49,7 @@ public class CarFrontCollide : MonoBehaviour
             var animal_scale_z = other.transform.localScale.z;
             
             other.transform.localScale = new Vector3(animal_scale_x/3f, animal_scale_y/3f, animal_scale_z/3f);
+            gameManager.attachedAnimals.Add(other.gameObject);
         }
         
     }

@@ -10,6 +10,7 @@ TagManager:
   - duck
   - pig
   - sheep
+  - goal
   layers:
   - Default
   - TransparentFX
