@@ -50,7 +50,7 @@ MonoBehaviour:
   forwardAccel: 8
   reverseAccel: 4
   maxSpeed: 50
-  turnStrength: 120
+  turnStrength: 150
   grounded: 0
   back: {fileID: 4209184519065665273}
 --- !u!1 &1302546660087884

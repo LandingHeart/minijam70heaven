@@ -28,7 +28,12 @@ public class CarFrontCollide : MonoBehaviour
             other.gameObject.GetComponent<SpringJoint>().connectedBody = back;
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             other.gameObject.GetComponent<MeshCollider>().enabled = false;
+
+            var animal_scale_x = other.transform.localScale.x;
+            var animal_scale_y = other.transform.localScale.y;
+            var animal_scale_z = other.transform.localScale.z;
             
+            other.transform.localScale = new Vector3(animal_scale_x/3f, animal_scale_y/3f, animal_scale_z/3f);
         }
         
     }
