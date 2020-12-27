@@ -14,11 +14,15 @@ public class CarMovementScript : MonoBehaviour
     private float currentbreakForce;
     private bool isAccelerating = false;
 
+    [SerializeField] private Rigidbody rb;
+
     [SerializeField] private float motorForce;
-    [SerializeField] private float maxForce;
-    [SerializeField] private float minForce;
+
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
+
+    private float forwardAccel = 5000f;
+
 
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider frontRightWheelCollider;
@@ -55,9 +59,17 @@ public class CarMovementScript : MonoBehaviour
         // Debug.Log(verticalInput);
     }
 
+
     private void HandleMotor()
     {
-        
+        if (isAccelerating)
+        {
+            rb.AddForce(transform.forward * forwardAccel);
+        }
+        else
+        {
+            
+        }
 
 
         frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
