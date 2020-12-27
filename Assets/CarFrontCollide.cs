@@ -5,6 +5,12 @@ using UnityEngine;
 public class CarFrontCollide : MonoBehaviour
 {   
     public Rigidbody back;
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public AudioClip chicken;
+    [SerializeField] public AudioClip cow;
+    [SerializeField] public AudioClip duck;
+    [SerializeField] public AudioClip pig;
+    [SerializeField] public AudioClip sheep;
     [SerializeField] public GameManager gameManager;
 
     public int curr_num_of_chicken = 0;
@@ -48,6 +54,18 @@ public class CarFrontCollide : MonoBehaviour
     }
 
     private void PlayAnimalSound(string tag){
+        if(tag.Equals("chicken")){
+            audioSource.clip = chicken;
+        }else if(tag.Equals("cow")){
+            audioSource.clip = cow;
+        }else if(tag.Equals("duck")){
+            audioSource.clip = duck;
+        }else if(tag.Equals("pig")){
+            audioSource.clip = pig;
+        }else if(tag.Equals("sheep")){
+            audioSource.clip = sheep;
+        }
 
+        audioSource.Play();
     }
 }
