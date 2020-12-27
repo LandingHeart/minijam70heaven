@@ -17,14 +17,13 @@ public class AnimationTrigger : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Update is called once per fram e
     void Update()
     {
         if(stop == true)
         {
             stopTimer += Time.deltaTime;
-            // Debug.Log(stopTimer + " seconds");
-
+            
 
             if(stopTimer >= 0.7)
             {
@@ -37,8 +36,8 @@ public class AnimationTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
-            // Debug.Log("collided player");
-            // _anim.SetTrigger("Startled");
+            Debug.Log("collided player");
+          
             particle.Play();
             stop = true;
             
