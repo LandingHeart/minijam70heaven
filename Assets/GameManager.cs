@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform[] spwanPoints_group;
     List<Transform> spwanPoints = new List<Transform>();
 
+    public int num_of_animals = 0;
+    public int num_of_chicken = 0;
+    public int num_of_cow = 0;
+    public int num_of_sheep = 0;
+    public int num_of_pig = 0;
+    public int num_of_duck = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {

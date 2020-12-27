@@ -5,6 +5,14 @@ using UnityEngine;
 public class CarFrontCollide : MonoBehaviour
 {   
     public Rigidbody back;
+    [SerializeField] public GameManager gameManager;
+
+    public int curr_num_of_chicken = 0;
+    public int curr_num_of_cow = 0;
+    public int curr_num_of_sheep = 0;
+    public int curr_num_of_pig = 0;
+    public int curr_num_of_duck = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +32,7 @@ public class CarFrontCollide : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(isAnimal(other.tag)){
+            PlayAnimalSound(other.tag);
             other.transform.position = back.transform.position;
             other.gameObject.GetComponent<SpringJoint>().connectedBody = back;
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
@@ -36,5 +45,9 @@ public class CarFrontCollide : MonoBehaviour
             other.transform.localScale = new Vector3(animal_scale_x/3f, animal_scale_y/3f, animal_scale_z/3f);
         }
         
+    }
+
+    private void PlayAnimalSound(string tag){
+
     }
 }
