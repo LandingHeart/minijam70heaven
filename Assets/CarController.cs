@@ -14,6 +14,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float turnStrength;
     private float gravityForce = 10f;
+    private float liftForce = 30f;
     public bool grounded;
 
     [SerializeField] public GameObject back;
@@ -47,14 +48,25 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate(){
         
+
         if(grounded){
             rb.drag = dragOnGround;
-            if(Mathf.Abs(speedInput) > 0){
-                rb.AddForce(transform.forward * speedInput);
-            }
         }else{
             rb.drag = 0.1f;
+            speedInput /= 10f;
             rb.AddForce(Vector3.up * -gravityForce);
+        }
+
+        if(Mathf.Abs(speedInput) > 0){
+            rb.AddForce(transform.forward * speedInput);
+        }
+
+        if (Input.GetKey(KeyCode.Space)){
+            rb.AddForce(Vector3.up * liftForce);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift)){
+            rb.AddForce(Vector3.up * -liftForce);
         }
         
         
