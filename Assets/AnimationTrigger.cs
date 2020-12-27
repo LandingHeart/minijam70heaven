@@ -6,14 +6,12 @@ using UnityEngine;
 public class AnimationTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Animator _anim;
     public ParticleSystem particle;
     public bool stop;
     private float stopTimer;
 
     void Start()
     {
-        _anim = GetComponent<Animator>();
         particle = GetComponentInChildren<ParticleSystem>();
         stop = false;
 
@@ -27,6 +25,7 @@ public class AnimationTrigger : MonoBehaviour
             stopTimer += Time.deltaTime;
             // Debug.Log(stopTimer + " seconds");
 
+
             if(stopTimer >= 0.7)
             {
                 particle.Stop();
@@ -39,7 +38,7 @@ public class AnimationTrigger : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
             // Debug.Log("collided player");
-            _anim.SetTrigger("Startled");
+            // _anim.SetTrigger("Startled");
             particle.Play();
             stop = true;
             
