@@ -463,6 +463,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &412930823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1260756228553936, guid: b471b549ed0cf0b42b15b41a16e07b88, type: 3}
+  m_PrefabInstance: {fileID: 1699877687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &527983557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5594890913438131126, guid: b471b549ed0cf0b42b15b41a16e07b88, type: 3}
+  m_PrefabInstance: {fileID: 1699877687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &527983563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527983557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee27e2cda7deee43a249d10ce8965ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 412930823}
 --- !u!1 &550471253
 GameObject:
   m_ObjectHideFlags: 3
