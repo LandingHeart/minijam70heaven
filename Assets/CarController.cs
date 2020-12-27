@@ -16,6 +16,8 @@ public class CarController : MonoBehaviour
     private float gravityForce = 10f;
     public bool grounded;
 
+    [SerializeField] public GameObject back;
+
     private float dragOnGround = 3f;
 
     private float speedInput, turnInput;
