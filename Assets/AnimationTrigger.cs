@@ -25,7 +25,7 @@ public class AnimationTrigger : MonoBehaviour
             stopTimer += Time.deltaTime;
             
 
-            if(stopTimer >= 0.7)
+            if(stopTimer >= 2)
             {
                 particle.Stop();
    

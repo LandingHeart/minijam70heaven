@@ -39,7 +39,7 @@ public class CarController : MonoBehaviour
 
         turnInput = Input.GetAxis(HORIZONTAL);
         // if(grounded){
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis(VERTICAL), 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime, 0f));
         // }
 
         visual.position = rb.transform.position;
