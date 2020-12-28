@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public int num_of_sheep = 0;
     public int num_of_pig = 0;
     public int num_of_duck = 0;
-
     public float timer = 30f;
 
 
@@ -82,5 +81,11 @@ public class GameManager : MonoBehaviour
         num_of_animals += 1;
     }
 
+    public int getscore()
+    {
+        int score = 0;
+        score = num_of_chicken * 1 + num_of_sheep * 2 + num_of_pig * 3 + num_of_cow * 4 - num_of_duck*5;
+        return score;
+    }
     
 }
