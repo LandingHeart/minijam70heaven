@@ -18,8 +18,10 @@ public class CarController : MonoBehaviour
     public bool grounded;
 
     public AudioSource audio;
-
-
+    public AudioClip flyMusic;
+    public AudioClip normalMusic;
+    public GameObject audioManager;
+    [SerializeField] public GameManager gameManager;
     [SerializeField] public GameObject back;
 
     private float dragOnGround = 3f;
@@ -63,6 +65,15 @@ public class CarController : MonoBehaviour
 
         if(grounded){
             rb.drag = dragOnGround;
+            audioManager = GameObject.Find("AudioManager");
+            if(!audioManager.GetComponent<AudioSource>().isPlaying){
+                audioManager.GetComponent<AudioSource>().clip = normalMusic;
+                audioManager.GetComponent<AudioSource>().Play();
+            }
+            if(audioManager.GetComponent<AudioSource>().isPlaying && audioManager.GetComponent<AudioSource>().clip != normalMusic){
+                audioManager.GetComponent<AudioSource>().clip = normalMusic;
+                audioManager.GetComponent<AudioSource>().Play();
+            }
         }else{
             rb.drag = 0.1f;
             speedInput /= 20f;
@@ -75,6 +86,14 @@ public class CarController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)){
             rb.AddForce(Vector3.up * liftForce);
+            audioManager = GameObject.Find("AudioManager");
+            if(gameManager.attachedAnimals.Count > 0){
+                if(audioManager.GetComponent<AudioSource>().isPlaying && audioManager.GetComponent<AudioSource>().clip != flyMusic){
+                    audioManager.GetComponent<AudioSource>().clip = flyMusic;
+                    audioManager.GetComponent<AudioSource>().Play();
+                }
+            }
+            
         }
 
         if (Input.GetKey(KeyCode.LeftShift)){
