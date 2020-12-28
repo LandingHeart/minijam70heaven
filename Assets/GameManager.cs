@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     public int getscore()
     {
         int score = 0;
-        score = num_of_chicken * 1 + num_of_sheep * 2 + num_of_pig * 3 - num_of_cow * 4 - num_of_duck*5;
+        score = num_of_chicken * 1 + num_of_sheep * 2 - num_of_pig * 100 + num_of_cow * 4 + num_of_duck*5;
         return score;
     }
     
