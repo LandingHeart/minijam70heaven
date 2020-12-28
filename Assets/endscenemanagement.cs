@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class endscenemanagement : MonoBehaviour
 {
     public Text scoreText;
+    public Text tipText;
     private int score;
     public void retry()
     {
@@ -15,5 +16,9 @@ public class endscenemanagement : MonoBehaviour
     {
         score = PlayerPrefs.GetInt("score");
         scoreText.text = "Your Score is: " + score.ToString();
+        if(score >= 0)
+        {
+            tipText.text = "";
+        }
     }
 }
