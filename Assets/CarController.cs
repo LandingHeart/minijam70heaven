@@ -17,6 +17,9 @@ public class CarController : MonoBehaviour
     private float liftForce = 25f;
     public bool grounded;
 
+    public AudioSource audio;
+
+
     [SerializeField] public GameObject back;
 
     private float dragOnGround = 3f;
@@ -25,6 +28,7 @@ public class CarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         rb.transform.parent = null;
     }
 
@@ -32,6 +36,14 @@ public class CarController : MonoBehaviour
     void Update()
     {
         speedInput = 0f;
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+         
+        }
         if(Input.GetAxis(VERTICAL) > 0){
             speedInput = Input.GetAxis(VERTICAL) * forwardAccel * SPEED_MULTIPLIER;
         }else if(Input.GetAxis(VERTICAL) < 0){
